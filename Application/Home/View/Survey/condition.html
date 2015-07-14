@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
+    <title>设计问卷</title>
+
+    <!-- Bootstrap -->
+    <link href="/Public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/css/common.css" rel="stylesheet">
+    <link href="/Public/css/create.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="header">
+      <div class="header_left goto_back">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </div>
+      设计问卷
+      <div class="header_right goto_view">
+        <span class="glyphicon glyphicon-ok">预览</span>
+      </div>
+    </div>
+      <h4>#{$surveyDetail.sid}. <span id="survey-title">{$surveyDetail.title}</span>
+      <span id="survey-subtitle">{$surveyDetail.subtitle}</span></h4>
+  
+      <div class="survey-question-option-form" id="survey-{$surveyDetail.sid}">
+        <!-- 加载已有选项 -->
+        <div class="form-group">
+          <if condition="$questionDetail.type eq 'radio' or $questionDetail.type eq 'checkbox'">
+          <label for="inputTitle" class="control-label">选项</label>
+          <div class="question-option-set" id="question-{$questionDetail.qid}-option-{$questionDetail.type}">
+
+              <volist name="optionSet" id="option">
+
+              <div class="form-group question-option-condition" id="question-{$questionDetail.qid}-option-{$option.oid}">
+                <div class="input-group">
+                  <div class="input-group-addon option-status">
+                    <span class="glyphicon glyphicon-ok"></span>
+                  </div>
+
+                  <input type="text" class="form-control option-condition" id="inputContent" placeholder="选项内容" autocomplete="off" value="{$option.content}" disabled=disabled>
+
+                  <input type="text" class="form-control jump-text" id="inputContent" value="跳转至" disabled=disabled>
+
+                  <select class="form-control option-condition option-condition-checked" id="option-select-{$option.oid}">
+                    <option value="0">不设置</option>
+                    <volist name="forwardQuestion" id="forward">
+                      <eq name="option.jump" value="$forward.qid">
+                        <option value="{$forward.qid}" selected>{$forward.title}</option>
+                      <else />
+                        <option value="{$forward.qid}">{$forward.title}</option>
+                      </eq>
+                    </volist>
+                  </select>
+
+                  </span>
+                </div>
+              </div>
+              </volist>
+            </div>
+          </if>
+        </div>
+      </div>
+
+    <div class="myNotification modal fade modal-sm">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">提示</h4>
+          </div>
+          <div class="modal-body">
+            <p>未知错误，请于管理员联系</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/Public/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/common.js"></script>
+    <script src="/Public/js/condition.js"></script>
+  </body>
+</html>

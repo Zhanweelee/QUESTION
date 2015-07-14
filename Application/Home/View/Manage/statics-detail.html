@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>统计详情</title>
+
+    <!-- Bootstrap -->
+    <link href="/Public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/css/common.css" rel="stylesheet">
+    <link href="/Public/css/create.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="header">
+      <div class="header_left goto_back">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </div>
+      统计详情
+    </div>
+    <div>
+    <div class="survey-title-view">{$surveyDetail.title} <span class="survey-participate">共{$surveyDetail.participate}人回答</span></div>
+    <div class="survey-subtitle-view">{$surveyDetail.subtitle}</div>
+    </div>
+    <div class="survey-form" id="survey-form-{$surveyDetail.sid}">
+      <volist name="activeQuestionSet" id="questionItem">
+      <div class="question-item" id="question-{$questionItem.type}-{$questionItem.qid}">
+        # {$questionItem.type|parseType}
+
+        <div class="question-title">{$questionItem.title}
+          <span class="question-subtitle">{$questionItem.subtitle}</span>
+        </div>
+
+        <if condition="$questionItem.type eq 'radio' or $questionItem.type eq 'checkbox'">
+          <volist name="questionItem.optionSet" id="option">
+              选项: {$option.content|textOutline} 
+          <span class="question-subtitle">共 {$option.num} 人选择该选项</span>
+              <ul class="list-group question-text-answers">
+                <li class="list-group-item active">答案列表</li>
+                <volist name="option.answerSet" id="answer">
+                  <if condition="$answer.content neq ''">
+                  <li class="list-group-item answer-item" id="answer-{$answer.aid}">{$answer.content}</li>
+                  </if>
+                </volist>
+
+                  <li class="list-group-item active">回答内容将会被显示在这里</li>
+              </ul>
+          </volist>
+        <elseif condition="$questionItem.type eq 'text'"/>
+        <div class="question-text-input">
+
+        <ul class="list-group question-text-answers">
+          <li class="list-group-item active">答案列表</li>
+          <volist name="questionItem.answerSet" id="answer">
+            <if condition="$answer.content neq ''">
+            <li class="list-group-item answer-item" id="answer-{$answer.aid}">{$answer.content}</li>
+            </if>
+          </volist>
+            <li class="list-group-item active">回答内容将会被显示在这里</li>
+        </ul>
+
+        </div>
+        </if>
+
+      </div>
+      </volist>
+    </div>
+
+
+    <div class="myNotification modal fade modal-sm">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">提示</h4>
+          </div>
+          <div class="modal-body">
+            <p>未知错误，请于管理员联系</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/Public/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/common.js"></script>
+    <script src="/Public/js/view.js"></script>
+  </body>
+</html>

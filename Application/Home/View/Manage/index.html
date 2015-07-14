@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
+    <title>问卷列表</title>
+
+    <!-- Bootstrap -->
+    <link href="/Public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/css/common.css" rel="stylesheet">
+    <link href="/Public/css/create.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="header">
+      <div class="header_left goto_manage">
+        <span class="glyphicon glyphicon-home"></span>
+      </div>
+      管理首页
+      <div class="header_right goto_logout">退出</div>
+    </div>
+
+    <div class="btn-set goto_profile">
+      <button class="btn btn-danger">修改密码</button>
+    </div>
+
+    <div>
+        <ul class="list-group">
+          <volist name="surveySet" id="survey">
+          <div class="survey-item" id="survey-item-{$survey.sid}">
+          <li class="list-group-item">
+            <if condition="$survey.isdel eq 0">
+              <a href="/survey/modify/s/{$survey.sid}">#{$survey.sid}. {$survey.title}</a>
+              <span class="badge">{$survey.participate}</span>
+              <div class="panel-setting survey-status-finish survey-finish">
+                <span class="glyphicon glyphicon-ban-circle"></span>
+              </div>
+            <else />
+              <span class="survey-finished"><a href="/survey/statics/s/{$survey.sid}" >#{$survey.sid}. {$survey.title} (已结束)</a></span>
+              <span class="badge">{$survey.participate}</span>
+              <div class="panel-setting survey-status-remove survey-remove">
+                <span class="glyphicon glyphicon-trash"></span>
+              </div>
+            </if>
+          </li>
+          </div>
+          </volist>
+        </ul>
+    </div>
+
+    <div class="survey-add">
+        <span class="glyphicon glyphicon-plus-sign"></span> 创建问卷
+    </div>
+
+    <div class="myNotification modal fade modal-sm">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">提示</h4>
+          </div>
+          <div class="modal-body">
+            <p>未知错误，请于管理员联系</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/Public/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/common.js"></script>
+    <script src="/Public/js/manage.js"></script>
+  </body>
+</html>

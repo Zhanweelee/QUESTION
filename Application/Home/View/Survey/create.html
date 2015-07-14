@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>创建问卷</title>
+
+    <!-- Bootstrap -->
+    <link href="/Public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/css/common.css" rel="stylesheet">
+    <link href="/Public/css/create.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="header">
+      <div class="header_left goto_manage">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </div>
+      创建问卷
+      <div class="header_right survey-create">
+        下一步
+      </div>
+    </div>
+
+    <div class="survey-form">
+          <div class="form-group">
+            <label for="inputTitle" class="control-label">标题</label>
+            <div>
+              <input type="text" class="form-control check-empty" id="inputTitle" placeholder="主标题" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputSubTitle" class="control-label">说明</label>
+            <div>
+              <input type="text" class="form-control" id="inputSubTitle" placeholder="副标题" autocomplete="off">
+            </div>
+          </div>
+
+          <!--
+          <div class="form-group">
+            <label for="selectType" class="control-label">类型</label>
+            <div>
+              <select class="form-control" id="selectType">
+                <option value="1">生活类</option>
+                <option value="2">感情类</option>
+                <option value="3">测试类</option>
+                <option value="4">其他</option>
+              </select>
+              <br>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="expires" class="control-label">有效日期</label>
+            <div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="expires" value="0" checked="checked">
+                  永久有效
+                </label>
+                <label>
+                  <input type="radio" name="expires" value="30">
+                  一个月内
+                </label>
+                <label>
+                  <input type="radio" name="expires" value="90">
+                  三个月内
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input type="radio" name="expires" value="-1">
+                  自定义
+                  <input type="text" name="expiresDays" id="expires-days" placeholder="填入数字" disabled/> 天
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><input type="checkbox" id="" placeholder="选项内容" autocomplete="off">加密</span>
+              <input type="text" id="encryptCode" class="form-control" placeholder="建议设置简单的字母数字">
+            </div>
+          </div>
+          !-->
+
+        </fieldset>
+      </form>
+
+    </div>
+
+    <div class="btn-set">
+      <button type="submit" class="btn btn-danger survey-create" id="survey-create">创建</button>
+    </div>
+
+    <div class="myNotification modal fade modal-sm">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">提示</h4>
+          </div>
+          <div class="modal-body">
+            <p>未知错误，请于管理员联系</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/Public/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/common.js"></script>
+    <script src="/Public/js/create.js"></script>
+  </body>
+</html>
