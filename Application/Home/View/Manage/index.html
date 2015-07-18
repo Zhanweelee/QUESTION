@@ -30,8 +30,8 @@
       <div class="header_right goto_logout">退出</div>
     </div>
 
-    <div class="btn-set goto_profile">
-      <button class="btn btn-danger">修改密码</button>
+    <div class="btn-set">
+      <button class="btn btn-danger" onclick="window.location.href='/admin/profile'">修改密码</button>
     </div>
 
     <div>
@@ -42,13 +42,13 @@
             <if condition="$survey.isdel eq 0">
               <a href="/survey/modify/s/{$survey.sid}">#{$survey.sid}. {$survey.title}</a>
               <span class="badge">{$survey.participate}</span>
-              <div class="panel-setting survey-status-finish survey-finish">
+              <div class="panel-setting survey-status-finish survey-finish" onclick="void(0)">
                 <span class="glyphicon glyphicon-ban-circle"></span>
               </div>
             <else />
               <span class="survey-finished"><a href="/survey/statics/s/{$survey.sid}" >#{$survey.sid}. {$survey.title} (已结束)</a></span>
               <span class="badge">{$survey.participate}</span>
-              <div class="panel-setting survey-status-remove survey-remove">
+              <div class="panel-setting survey-status-remove survey-remove" onclick="void(0)">
                 <span class="glyphicon glyphicon-trash"></span>
               </div>
             </if>

@@ -27,7 +27,7 @@
         <span class="glyphicon glyphicon-chevron-left"></span>
       </div>
       设计问卷
-      <div class="header_right goto_view">
+      <div class="header_right goto_view" onclick="void(0)">
         <span class="glyphicon glyphicon-ok">预览</span>
       </div>
     </div>
@@ -91,7 +91,7 @@
 
                         <input type="text" class="form-control option-check-changed" id="inputContent" placeholder="选项内容" autocomplete="off" value="{$option.content}">
 
-                        <div class="input-group-addon option-delete">
+                        <div class="input-group-addon option-delete" onclick="void(0)">
                           <span class="glyphicon glyphicon-trash"></span>
                         </div>
 
@@ -114,14 +114,14 @@
 
                 <div class="queestion-tool">
                     <if condition="$questionItem.type eq 'radio' or $questionItem.type eq 'checkbox'">
-                      <div class="col-xs-5 question-option-add">
+                      <div class="col-xs-5 question-option-add" onclick="void(0)">
                             <span class="glyphicon glyphicon-plus-sign"></span> 新增
                       </div>
                     <else />
                       <div class="col-xs-5"></div>
                     </if>
 
-                  <div class="col-xs-5 question-update">
+                  <div class="col-xs-5 question-update" onclick="void(0)">
                       <span class="glyphicon glyphicon-plus-sign"></span> 保存
                   </div>
                 </div>
