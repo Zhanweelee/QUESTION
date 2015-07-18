@@ -114,14 +114,14 @@
 
                 <div class="queestion-tool">
                     <if condition="$questionItem.type eq 'radio' or $questionItem.type eq 'checkbox'">
-                      <div class="col-xs-5 question-option-add">
+                      <div class="col-xs-5 question-option-add" onclick="void(0)">
                             <span class="glyphicon glyphicon-plus-sign"></span> 新增
                       </div>
                     <else />
                       <div class="col-xs-5"></div>
                     </if>
 
-                  <div class="col-xs-5 question-update">
+                  <div class="col-xs-5 question-update" onclick="void(0)">
                       <span class="glyphicon glyphicon-plus-sign"></span> 保存
                   </div>
                 </div>
