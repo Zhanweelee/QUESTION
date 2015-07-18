@@ -66,7 +66,7 @@ function WeiXinShareBtn(title, url, desc, img) {
 			"title": title,
 			"link": url,
 			"desc": desc,
-			"img_url": "http://t1.qpic.cn/mblogpic/7e6e41a9e92bfb8636a2/2000.jpg"
+			"img_url": "http://come.im/Public/img/logo.jpg"
 		});
 	}
 };

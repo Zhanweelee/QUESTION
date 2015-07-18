@@ -214,15 +214,20 @@ body {
 
 /* condition.html */
 .question-option-condition .jump-text {
-	width: 100px;
 	border-left: none;
 	border-right: none;
 	background: white;
+	border: none;
+	width: 20%;
 }
 
 .question-option-condition .option-condition {
-	width: 30%;
+	width: 35%;
 	min-width: 100px;
+}
+
+.condition-option-status {
+	width: 10%;
 }
 
 /* view.html */

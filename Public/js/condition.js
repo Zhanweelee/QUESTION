@@ -38,3 +38,8 @@ $(document).delegate(".option-condition-checked", "change", function() {
 		}
 	})
 })
+
+$(".goto_view").click(function() {
+	var sid = $(".survey-question-option-form")[0].id.split("-")[1];
+	window.location = "/survey/view/s/" + sid;
+});
